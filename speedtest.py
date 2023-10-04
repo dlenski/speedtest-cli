@@ -1949,7 +1949,8 @@ def shell():
             )
 
         if args.server and len(args.server) == 1:
-            printer('Retrieving information for the selected server...', quiet)
+            printer('Retrieving information for the selected server (%s)...' %
+                    args.server[0], quiet)
         else:
             printer('Selecting best server based on ping...', quiet)
         speedtest.get_best_server()
@@ -1958,7 +1959,7 @@ def shell():
 
     results = speedtest.results
 
-    printer('Hosted by %(sponsor)s (%(name)s) [%(d)0.2f km]: '
+    printer('ID %(id)s. Hosted by %(sponsor)s (%(name)s) [%(d)0.2f km]: '
             '%(latency)s ms' % results.server, quiet)
 
     if args.download:
